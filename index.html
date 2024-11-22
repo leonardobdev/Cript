@@ -1,0 +1,21 @@
+<html>
+<body>
+<input id="text">
+<button>code</button>
+<br>
+<input id="number">
+<button>decode</button>
+<br>
+<button>reset</button>
+<script>
+let $=e=>document.querySelector(e);
+let $f=(e)=>[...document.querySelectorAll('*')].filter(a=>a.value==e||a.innerText==e)[0];
+let c=e=>String(e).split("").map(a=>a.charCodeAt(0)).join(" ");
+let d=e=>String(e).split(" ").map(a=>String.fromCharCode(Number(a))).join("");
+let r=e=>Number(e).toString(36);
+$f("code").onclick=()=>{$("#number").value=c($("#text").value);};
+$f("decode").onclick=()=>{$("#text").value=d($("#number").value);};
+$f("reset").onclick=()=>{$("#text").value=$("#number").value=""};
+</script>
+</body>
+</html>
